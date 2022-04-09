@@ -7,7 +7,7 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { id } = useParams();
-  const getSingleProduct = async () => {
+  const getProductDetail = async () => {
     setLoading(true);
     let url = `https://my-json-server.typicode.com/legobitna/hnm-react-router/products/${id}`;
     let response = await fetch(url);
@@ -17,7 +17,7 @@ const ProductDetail = () => {
     setProduct(data);
   };
   useEffect(() => {
-    getSingleProduct();
+    getProductDetail();
   }, []);
   if (loading || product == null) return <h1>Loading</h1>;
   return (
